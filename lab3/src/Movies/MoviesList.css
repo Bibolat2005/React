@@ -1,0 +1,39 @@
+.load-button {
+    background-color: #e032be;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 200px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .load-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Контейнер для списка фильмов */
+  .movies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0 40px;
+  }
+  
+  /* Каждый элемент списка */
+  .movies-item {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Контейнер для кнопки и фильмов */
+  .movies-list-container {
+    text-align: center;
+    padding: 20px;
+  }
+  

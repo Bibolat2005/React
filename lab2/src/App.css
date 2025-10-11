@@ -49,6 +49,7 @@
 .team-card:hover {
   transform: translateY(-5px);
   background: #eaf3ff;
+  cursor: pointer
 }
 
 .team-card h3 {
