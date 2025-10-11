@@ -18,19 +18,20 @@
   /* Контейнер для списка фильмов */
   .movies-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 30px;
-    list-style: none;
-    padding: 0;
-    margin: 0 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; 
+    justify-items: center;
+    padding: 20px 40px;
+    margin: 0 auto;
+    max-width: 1300px;
   }
+  
   
   /* Каждый элемент списка */
   .movies-item {
     display: flex;
     justify-content: center;
   }
-  
   /* Контейнер для кнопки и фильмов */
   .movies-list-container {
     text-align: center;
