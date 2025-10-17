@@ -1,0 +1,77 @@
+.load-button {
+    background-color: #e032be;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 200px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .load-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Контейнер для списка фильмов */
+  .movies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; 
+    justify-items: center;
+    padding: 20px 40px;
+    margin: 0 auto;
+    max-width: 1300px;
+  }
+  
+  /* Каждый элемент списка */
+  .movies-item {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Контейнер для кнопки и фильмов */
+  .movies-list-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Стили для поисковой строки */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px 15px;
+    border: 2px solid #e032be;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 300px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-bar input:focus {
+    border-color: #0056b3;
+  }
+  
+  .clear-btn {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .clear-btn:hover {
+    background-color: #5a6268;
+  }
