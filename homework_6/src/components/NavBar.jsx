@@ -1,89 +1,74 @@
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../AuthContext";
+import "./NavBar.css";
 
 export default function NavBar() {
   const location = useLocation();
+  const { user, logout } = useAuth();
 
-  const navStyle = {
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    padding: "1rem 2rem",
-    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
-    position: "sticky",
-    top: 0,
-    zIndex: 1000,
-    backdropFilter: "blur(10px)"
-  };
-
-  const containerStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    maxWidth: "1200px",
-    margin: "0 auto"
-  };
-
-  const logoStyle = {
-    fontSize: "1.5rem",
-    fontWeight: "700",
-    color: "white",
-    textDecoration: "none",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    transition: "all 0.3s ease"
-  };
-
-  const linksStyle = {
-    display: "flex",
-    gap: "2rem",
-    alignItems: "center"
-  };
-
-  const linkStyle = (isActive) => ({
-    color: isActive ? "white" : "rgba(255, 255, 255, 0.8)",
-    textDecoration: "none",
-    fontWeight: "500",
-    padding: "0.5rem 1rem",
-    borderRadius: "25px",
-    transition: "all 0.3s ease",
-    background: isActive ? "rgba(255, 255, 255, 0.2)" : "transparent",
-    boxShadow: isActive ? "0 4px 15px rgba(0, 0, 0, 0.2)" : "none",
-    display: "flex",
-    alignItems: "center",
-    gap: "6px"
-  });
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <nav style={navStyle}>
-      <div style={containerStyle}>
-        <Link to="/" style={logoStyle}>
+    <nav className="navbar">
+      <div className="navbar-container">
+
+        <Link to="/" className="logo">
           🚀 Rick & Morty
         </Link>
-        
-        <div style={linksStyle}>
-          <Link 
-            to="/" 
-            style={linkStyle(location.pathname === '/')}
-          >
+
+        <div className="nav-links">
+          <Link to="/" className={`nav-item ${isActive("/") ? "active" : ""}`}>
             🏠 Home
           </Link>
-          <Link 
-            to="/about" 
-            style={linkStyle(location.pathname === '/about')}
+
+          <Link
+            to="/about"
+            className={`nav-item ${isActive("/about") ? "active" : ""}`}
           >
             ℹ️ About
           </Link>
-          <Link 
-            to="/items" 
-            style={linkStyle(location.pathname === '/items')}
+
+          <Link
+            to="/items"
+            className={`nav-item ${isActive("/items") ? "active" : ""}`}
           >
             👥 Characters
           </Link>
-          <Link 
-            to="/login" 
-            style={linkStyle(location.pathname === '/login')}
-          >
-            🔐 Login
-          </Link>
+
+          {/* If user not authorized  */}
+          {!user && (
+            <>
+              <Link
+                to="/login"
+                className={`nav-item ${isActive("/login") ? "active" : ""}`}
+              >
+                🔐 Login
+              </Link>
+
+              <Link
+                to="/signup"
+                className={`nav-item ${isActive("/signup") ? "active" : ""}`}
+              >
+                🆕 Signup
+              </Link>
+            </>
+          )}
+
+          {/* If user is authorixed */}
+          {user && (
+            <>
+              <Link
+                to="/profile"
+                className={`nav-item ${isActive("/profile") ? "active" : ""}`}
+              >
+                🙍 Profile
+              </Link>
+
+              <button className="nav-item logout-btn" onClick={logout}>
+                🚪 Logout
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
